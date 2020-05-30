@@ -1,3 +1,9 @@
+body {
+  background-color: aqua;
+  color: navy;
+}
 .App {
   text-align: center;
+  background-color: aqua;
+  
 }

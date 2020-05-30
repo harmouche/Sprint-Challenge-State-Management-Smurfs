@@ -23,10 +23,26 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+In a nutshell, actions are events. Actions send data from the application (user interactions, internal events such as API calls, and form submissions) to the store. The store gets information only from actions. Internal actions are simple JavaScript objects that have a type property (usually constant), describing the type of action and payload of information being sent to the store. Reducers are functions (pure) that take the current state of the application and an action and then return a new state. 
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+State is nothing but the state of the application at a given point of time. Generally component state is stored locally within a component and is not accessible from other components unless it’s explicitly passed as props to it’s sub components. When the number of components increases, the passing of props starts becoming cumbersome.
+Where as application state is a centralised global store which is accessible to any component that subscribes to the store.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+thunk is another word for a function. But it’s not just any old function. It’s a special (and uncommon) name for a function that’s returned by another function. When an action creator is called redux-thunk intercepts and acts on returned data. If the thing returned is an action, it forwards the action through to the reducer. But, if the thing returned is a function, aka a thunk (a function returned from a function), then it invokes the thunk and passes the dispatch function as an argument to it.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux, it is well structured and easy to understand by other developers who might use the code.
 
 ## Project Set Up
 
